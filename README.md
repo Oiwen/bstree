@@ -8,7 +8,9 @@ It's just a code, that works, and works well :)
 ## Build
 In terminal, type
 `mkdir build && cd build/`
+
 `cmake ..`
+
 `make && ./bstree`
 
 ## ToDo's
