@@ -349,21 +349,21 @@ void BST<Comparable>::levelorder_iterative() const
 template <class Comparable>
 void BST<Comparable>::levelorder_iterative(const std::unique_ptr<Node<Comparable>> &node) const
 {
-  std::queue<const Node<Comparable>*> q; 
-  const auto* pNode = node.get();
+  std::queue<Node<Comparable>*> q; 
+  auto* pNode = node.get();
   q.push(pNode);
 
   while(!q.empty()) {
-    pNode = q.front();
-    q.pop();
-    visit(pNode->element);
+    //visit(q.front()->element);
+    pNode = q.pop();
+    std::cout << pNode->element << std::endl;
 
-    if(pNode->left != nullptr) {
-      q.push(pNode->left.get());
+    if(pNode->left.get() != nullptr) {
+      q.push(node->left.get());
     }
 
-    if(pNode->right != nullptr) {
-      q.push(pNode->right.get());
+    if(node->right.get() != nullptr) {
+      q.push(node->right.get());
     }
   }
 }
